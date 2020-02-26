@@ -123,3 +123,7 @@ vnoremap : :B
 vnoremap // :s/^\(\s*\)/\1\/\//<cr>:noh<cr> 
 "uncomment a visual block using \\
 vnoremap \\ :s/^\(\s*\)\/\//\1/<cr>:noh<cr>
+
+"auto read external changes, :checktime needed to work around nvim issue https://github.com/neovim/neovim/issues/1936
+set autoread
+au FocusGained * :checktime
