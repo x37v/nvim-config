@@ -4,10 +4,11 @@ call GuiClipboard()
 
 set clipboard=unnamedplus
 
-colorscheme evening
 if has('macunix')
+  colorscheme evening
   Guifont Monaco:h14
 else
+  colorscheme torte
   call GuiFont("DejaVu Sans Mono:h11")
 endif
 set guioptions=
