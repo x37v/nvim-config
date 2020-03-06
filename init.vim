@@ -48,6 +48,7 @@ call plug#end()
 ""Plugin config
 runtime coc-init.vim
 runtime omnisharp.vim
+runtime sc.vim
 
 "CtrlP stuff
 nmap ; :CtrlPBuffer<CR>
