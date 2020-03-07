@@ -33,7 +33,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/vis'
 Plug 'vim-scripts/a.vim'
 Plug 'vim-scripts/Buffer-grep'
-Plug 'supercollider/scvim'
+Plug 'x37v/scvim', { 'branch': 'relative-file' }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rust-lang/rust.vim'
 Plug 'simnalamburt/vim-mundo'
@@ -60,7 +60,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_max_files=0
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+"let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 "miniyank
 map p <Plug>(miniyank-autoput)
