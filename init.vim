@@ -99,6 +99,9 @@ au FileType rust
   \ | let g:rustfmt_autosave = 1
   \ | let g:rustfmt_command = "rustup run stable rustfmt"
 
+au FileType yaml
+  \ set sw=2 ts=2 expandtab softtabstop=2 signcolumn=yes
+
 
 """"""""""""""""""""""
 ""Global key bindings
