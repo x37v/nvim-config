@@ -60,7 +60,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_max_files=0
-"let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 "miniyank
 map p <Plug>(miniyank-autoput)
@@ -95,7 +95,7 @@ let vim_markdown_preview_toggle=2
 au FileType rust
   \ set sw=4 ts=4 expandtab softtabstop=4 signcolumn=yes
   \ | compiler cargo
-  \ | map <Leader>b :Cargo build --all \| cwindow<CR>
+  \ | map <Leader><Space> :make build<CR>
   \ | let g:rustfmt_autosave = 1
   \ | let g:rustfmt_command = "rustup run stable rustfmt"
 
