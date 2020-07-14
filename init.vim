@@ -41,6 +41,7 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'bfredl/nvim-miniyank'
 Plug 'w0rp/ale'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 
