@@ -37,11 +37,16 @@ Plug 'x37v/scvim', { 'branch': 'relative-file' }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rust-lang/rust.vim'
 Plug 'simnalamburt/vim-mundo'
-Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'bfredl/nvim-miniyank'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
+
+if has('macunix')
+Plug 'gfontenot/vim-xcode'
+endif
+
 call plug#end()
 
 
@@ -52,16 +57,20 @@ runtime omnisharp.vim
 runtime sc.vim
 
 "CtrlP stuff
-nmap ; :CtrlPBuffer<CR>
+nmap ; :CtrlPRoot<CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_max_files=0
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+"let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|target|build|vendor)$',
+  \ 'file': '\v\.(exe|so|dllo|swp|pyc|wav|mp3|ogg|blend)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 "miniyank
 map p <Plug>(miniyank-autoput)
@@ -84,10 +93,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "git
 command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
 
-"markdown preview
-"let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_github=1
-let vim_markdown_preview_toggle=2
+"editor config
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 
 """"""""""""""""""""""
