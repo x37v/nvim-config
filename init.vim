@@ -20,7 +20,7 @@ set clipboard=unnamedplus
 ""Plugin setup
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 "can convert camel<->snake etc
@@ -42,6 +42,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'bfredl/nvim-miniyank'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'cespare/vim-toml'
 
 if has('macunix')
 Plug 'gfontenot/vim-xcode'
@@ -67,8 +68,8 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_max_files=0
 "let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|target|build|vendor)$',
-  \ 'file': '\v\.(exe|so|dllo|swp|pyc|wav|mp3|ogg|blend)$',
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|target|build|vendor|node_modules)$',
+  \ 'file': '\v\.(exe|so|dllo|swp|pyc|wav|mp3|ogg|blend|html|xml)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
@@ -89,6 +90,7 @@ let g:ale_fixers = {
  \ }
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 
 "git
 command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
@@ -139,3 +141,6 @@ vnoremap \\ :s/^\(\s*\)\/\//\1/<cr>:noh<cr>
 "auto read external changes, :checktime needed to work around nvim issue https://github.com/neovim/neovim/issues/1936
 set autoread
 au FocusGained * :checktime
+
+"don't ignore anything
+let NERDTreeIgnore=[]
