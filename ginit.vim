@@ -14,3 +14,5 @@ endif
 set guioptions=
 set tw=0
 "highlight Folded guifg=black guibg=lightred
+
+highlight Pmenu guibg=black
