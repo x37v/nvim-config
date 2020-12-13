@@ -68,7 +68,7 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_max_files=0
 "let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|target|build|vendor|node_modules)$',
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|target|build|vendor|node_modules|dist)$',
   \ 'file': '\v\.(exe|so|dllo|swp|pyc|wav|mp3|ogg|blend|html|xml)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -112,6 +112,8 @@ au FileType rust
 au FileType yaml
   \ set sw=2 ts=2 expandtab softtabstop=2 signcolumn=yes
 
+au FileType cpp
+  \ noremap <Space> :A<CR>
 
 """"""""""""""""""""""
 ""Global key bindings
