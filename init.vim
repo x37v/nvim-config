@@ -146,3 +146,12 @@ au FocusGained * :checktime
 
 "don't ignore anything
 let NERDTreeIgnore=[]
+
+"neovide settings
+let g:neovide_cursor_animation_length=0.01
+colorscheme torte
+set guifont=Monaco:h16
+set guioptions=
+set tw=0
+highlight Folded guifg=black guibg=lightred
+highlight Pmenu guibg=black
