@@ -43,6 +43,7 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cespare/vim-toml'
+Plug 'cdelledonne/vim-cmake'
 
 if has('macunix')
 Plug 'gfontenot/vim-xcode'
@@ -58,7 +59,8 @@ runtime omnisharp.vim
 runtime sc.vim
 
 "CtrlP stuff
-nmap ; :CtrlPRoot<CR>
+"nmap ; :CtrlPRoot<CR>
+nmap ; :CtrlP<CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
@@ -114,6 +116,9 @@ au FileType yaml
 
 au FileType cpp
   \ noremap <Space> :A<CR>
+
+au FileType python
+  \ set sw=4 ts=4 expandtab softtabstop=4 signcolumn=yes
 
 """"""""""""""""""""""
 ""Global key bindings
