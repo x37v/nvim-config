@@ -1,3 +1,5 @@
 {
-  "diagnostic.signOffset": 9999999
+  "diagnostic.signOffset": 9999999,
+  "codeLens.enable": true,
+  "solargraph.useBundler": true
 }

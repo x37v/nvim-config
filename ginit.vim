@@ -11,3 +11,5 @@ else
   colorscheme torte
   call GuiFont("DejaVu Sans Mono:h11")
 endif
+highlight Folded guifg=black guibg=lightred
+highlight Pmenu guibg=black
