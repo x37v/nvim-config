@@ -43,6 +43,7 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cespare/vim-toml'
+Plug 'cdelledonne/vim-cmake'
 
 if has('macunix')
 Plug 'gfontenot/vim-xcode'
@@ -58,7 +59,8 @@ runtime omnisharp.vim
 runtime sc.vim
 
 "CtrlP stuff
-nmap ; :CtrlPRoot<CR>
+"nmap ; :CtrlPRoot<CR>
+nmap ; :CtrlP<CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
@@ -93,7 +95,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 
 "git
-command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
+command! -bar -bang -nargs=* Gci :Git commit<bang> -v <args>
 
 "editor config
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -103,17 +105,23 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 ""File Type details
 
 au FileType rust
-  \ set sw=4 ts=4 expandtab softtabstop=4 signcolumn=yes
+  \ setl sw=4 ts=4 expandtab softtabstop=4 signcolumn=yes
   \ | compiler cargo
   \ | map <Leader><Space> :make build<CR>
   \ | let g:rustfmt_autosave = 1
   \ | let g:rustfmt_command = "rustup run stable rustfmt"
 
 au FileType yaml
-  \ set sw=2 ts=2 expandtab softtabstop=2 signcolumn=yes
+  \ setl sw=2 ts=2 expandtab softtabstop=2 signcolumn=yes
 
 au FileType cpp
   \ noremap <Space> :A<CR>
+
+au FileType python
+  \ setl sw=4 ts=4 expandtab softtabstop=4 signcolumn=yes
+
+au FileType ruby
+  \ setl sw=2 ts=2 expandtab
 
 """"""""""""""""""""""
 ""Global key bindings
@@ -155,3 +163,6 @@ set guioptions=
 set tw=0
 highlight Folded guifg=black guibg=lightred
 highlight Pmenu guibg=black
+
+"cmake config, want to find the closest CMakeLists to our pwd
+let g:cmake_root_markers = ['CMakeLists.txt']
