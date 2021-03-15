@@ -2,8 +2,10 @@
   "diagnostic.signOffset": 9999999,
   "codeLens.enable": true,
   "solargraph.useBundler": true,
-  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
-  "rust-analyzer.procMacro.enable": true,
+  "_rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "_rust-analyzer.procMacro.enable": true,
+  "_comment-rust-analyzer.diagnostics.disabled": "enabled the below becuase the above crashes (for now)",
+  "rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
   "languageserver": {
     "ccls": {
       "command": "ccls",
