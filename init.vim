@@ -166,3 +166,6 @@ highlight Pmenu guibg=black
 
 "cmake config, want to find the closest CMakeLists to our pwd
 let g:cmake_root_markers = ['CMakeLists.txt']
+
+"work settings
+autocmd BufNewFile,BufRead /Users/xnor/dev/max.maxcore/codegen/* let b:ale_fix_on_save = 0
