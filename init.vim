@@ -60,7 +60,7 @@ runtime sc.vim
 
 "CtrlP stuff
 "nmap ; :CtrlPRoot<CR>
-nmap ; :CtrlP<CR>
+nmap ; :CtrlPMixed<CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
@@ -99,6 +99,9 @@ command! -bar -bang -nargs=* Gci :Git commit<bang> -v <args>
 
 "editor config
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+"https://github.com/neovim/neovim/wiki/FAQ#calling-inputlist-echomsg-etc-in-filetype-plugins-and-autocmd-does-not-work
+set shortmess-=F
 
 
 """"""""""""""""""""""
