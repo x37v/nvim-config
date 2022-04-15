@@ -38,7 +38,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rust-lang/rust.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'OmniSharp/omnisharp-vim'
+"Plug 'OmniSharp/omnisharp-vim'
 Plug 'bfredl/nvim-miniyank'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
@@ -55,7 +55,7 @@ call plug#end()
 """"""""""""""""""""""
 ""Plugin config
 runtime coc-init.vim
-runtime omnisharp.vim
+"runtime omnisharp.vim
 runtime sc.vim
 
 "CtrlP stuff
