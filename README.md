@@ -11,6 +11,9 @@ brew install --cask font-hack-nerd-font
 * Install language servers
   * `:MasonInstall rust-analyzer codelldb eslint-lsp typescript-language-server`
 
+* nvim-dap
+  * https://github.com/mfussenegger/nvim-dap/wiki/C-C---Rust-(via--codelldb)
+
 
 ## Sources
 

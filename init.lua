@@ -18,12 +18,14 @@ require('lsp-status').register_progress()
 require("nvim-tree").setup()
 require("telescope").setup()
 require('lualine').setup()
+require("lsp-format").setup {}
 
 require("user.rust")
 require("user.treesitter")
 require("user.options")
 require("user.keymaps")
 require("user.statusline")
+require("user.completion")
 
 -- LSP Diagnostics Options Setup 
 local sign = function(opts)
@@ -88,6 +90,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
+local on_attach_format = function(client, bufnr)
+  on_attach(client, bufnr)
+  -- enable lsp-format
+  require("lsp-format").on_attach(client)
+end
+
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
@@ -106,7 +114,7 @@ require('lspconfig')['clangd'].setup{
     enable_editorconfig_support = true,
 }
 require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
+    on_attach = on_attach_format,
     flags = lsp_flags,
     -- Server-specific settings...
     settings = {
