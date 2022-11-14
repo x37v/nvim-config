@@ -27,3 +27,12 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+
+--dap
+local dap = require("dap")
+vim.keymap.set('n', '<leader><space>', dap.toggle_breakpoint, {})
+vim.keymap.set('n', '<leader>1', dap.step_into, {})
+vim.keymap.set('n', '<leader>2', dap.step_over, {})
+vim.keymap.set('n', '<leader>3', dap.step_out, {})
+vim.keymap.set('n', '<leader>4', dap.continue, {})

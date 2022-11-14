@@ -20,7 +20,6 @@ require("telescope").setup()
 require('lualine').setup()
 require("lsp-format").setup {}
 
-require("user.rust")
 require("user.treesitter")
 require("user.options")
 require("user.keymaps")
@@ -113,11 +112,30 @@ require('lspconfig')['clangd'].setup{
     flags = lsp_flags,
     enable_editorconfig_support = true,
 }
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach_format,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-      ["rust-analyzer"] = {}
-    }
+
+--rust, handled by rust tools
+local rt = require("rust-tools")
+
+-- Update this path
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+-- mac specific
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
+
+local opts = {
+  server = {
+    on_attach = function(client, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+      on_attach_format(client, bufnr)
+    end,
+  },
+  dap = {
+    adapter = require('rust-tools.dap').get_codelldb_adapter(
+    codelldb_path, liblldb_path)
+  }
 }
+
+rt.setup(opts)
