@@ -20,6 +20,7 @@ require("telescope").setup()
 require('lualine').setup()
 require("lsp-format").setup {}
 require("dapui").setup()
+require('Comment').setup()
 
 require("user.treesitter")
 require("user.options")
