@@ -131,7 +131,14 @@ local opts = {
       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
       -- Code action groups
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-      on_attach_format(client, bufnr)
+
+      local p = client.workspace_folders[1].name
+      if string.find(p, "usbd") then
+        -- Just for now until we fix up usbd_midi
+        on_attach(client, bufnr)
+      else
+        on_attach_format(client, bufnr)
+      end
     end,
   },
   dap = {
