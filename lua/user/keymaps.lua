@@ -18,12 +18,16 @@ vim.keymap.set('n', '<Up>', ":cprev<cr>", {})
 
 -- Nvimtree
 keymap("n", "<leader>t", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>ft", ":NvimTreeFindFile<cr>", opts)
+keymap("n", "<leader>fT", ":NvimTreeFindFile!<cr>", opts)
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '<left>', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<right>', vim.diagnostic.goto_next, opts)
 
 
 --telescope
