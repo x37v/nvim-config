@@ -15,7 +15,13 @@ require("mason-lspconfig").setup({
 require('lspconfig').pyright.setup{}
 require('lsp-status').register_progress()
 
-require("nvim-tree").setup()
+require("nvim-tree").setup {
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 1000,
+  }
+}
 require("telescope").setup()
 require('lualine').setup()
 require("lsp-format").setup {}
