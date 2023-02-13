@@ -54,6 +54,7 @@ end
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true}
 vim.api.nvim_set_option('updatetime', 300) 
+vim.cmd('autocmd FileType cs set ts=4 sw=4')
 
 -- Fixed column for diagnostics to appear
 -- Show autodiagnostic popup on cursor hover_range
