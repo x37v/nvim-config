@@ -114,12 +114,16 @@ local lsp_flags = {
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 }
 require('lspconfig')['clangd'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
     enable_editorconfig_support = true,
 }
+
+--https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#flow
+require'lspconfig'.flow.setup{}
 
 local null_ls = require("null-ls")
 
