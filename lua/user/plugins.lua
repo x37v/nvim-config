@@ -89,7 +89,8 @@ return require('packer').startup(function(use)
     end
   }
 
-  use 'jose-elias-alvarez/null-ls.nvim'
+  -- formatting
+  use 'mhartington/formatter.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
