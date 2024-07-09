@@ -4,7 +4,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("user.plugins")
+require("config.lazy")
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -15,13 +15,6 @@ require("mason-lspconfig").setup({
 require('lspconfig').pyright.setup{}
 require('lsp-status').register_progress()
 
-require("nvim-tree").setup {
-  git = {
-    enable = true,
-    ignore = false,
-    timeout = 1000,
-  }
-}
 require("telescope").setup()
 require('lualine').setup()
 require("lsp-format").setup {}
