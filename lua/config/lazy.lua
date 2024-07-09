@@ -33,11 +33,6 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
   {
-    pkg = { sources = { "lazy" } },
-    opts = {
-      rocks = {
-        enabled = false
-      }
-    }
+    pkg = { sources = { "lazy" } }
   }
 })

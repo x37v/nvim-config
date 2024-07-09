@@ -3,14 +3,13 @@ local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
 --Remap space as leader key
 --keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
 
+-- Shorten function name
+local keymap = vim.api.nvim_set_keymap
 
 --xnor
 vim.keymap.set('n', '<Down>', ":cnext<cr>", {})
@@ -20,6 +19,9 @@ vim.keymap.set('n', '<Up>', ":cprev<cr>", {})
 keymap("n", "<leader>t", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>ft", ":NvimTreeFindFile<cr>", opts)
 keymap("n", "<leader>fT", ":NvimTreeFindFile!<cr>", opts)
+
+--buffer explorer
+keymap("n", "<leader>be", ":BufExplorer<cr>", opts)
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
